@@ -14,8 +14,50 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>   
 
     </head>
-    <body>
+    <body background="background">
+        <center>
+            <div class="btn btn-danger heading">
+                <h1>AI Ping Pong Game</h1>
+                <button class="btn btn primary" data-toggle="modal" data-target="#myModal">Instructions</button>
+           </div>
+           <br>
+           <br>
+           <button id="start" class="btn btn-success" onclick="startGame()">Play Game</button>
+           <br>
+           <br>
+           <h3 id="status"  class="btn btn-warning"></h3>
+           <br>
+           <br>
+           <div id="canvas"></div>
+           <br>
+           <br>
+           <button id="restart" class="btn btn-warning" onclick="restar()"></button>
+           <br>
+           <br>
+           <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close"  data-dismiss="modal">&times;</button>
+                  <h4>Instructions</h4>
+                </div>
+                <div class="modal-body">
+                  <img src="jump.png" class="instruction_image">
+                  <img src="right,png" class="instruction_image">
+                  <img src="left.png" class="instruction_image">
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <h4>
+                Source Code : <a href="https://github.com/linuk">Linuk</a> || Game Credit : Mario
+              </h4>
+        </center>
 
         <script src="main.js"></script>
     </body>
 </html>
+
+
+7319367001
