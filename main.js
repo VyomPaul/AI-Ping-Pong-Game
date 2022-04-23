@@ -2,6 +2,9 @@
 /*created by prashant shukla */
 
 var paddle2 =10,paddle1=10;
+rightWristX = "";
+rightWristY = "";
+rightWristScore = ""; 
 
 var paddle1X = 10,paddle1Height = 110;
 var paddle2Y = 685,paddle2Height = 70;
@@ -29,7 +32,17 @@ function setup(){
   video.hide;
   video.parent('canvas');
 
+  poseNet.on(pose, "gotPoses");
   poseNet = ml5.poseNet(video, modelLoaded)
+}
+
+function gotPoses(results) {
+  if(results.length > 0) {
+    rightWristX = results[0].pose.wrist.x;
+    rightWristY = results[0].pose.wrist.y;
+
+    rightWristScore = results[0].pose.keypoints[10].score;
+  }
 }
 
 function modelLoaded() {
@@ -47,6 +60,12 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
+
+ if(rightWristScore > 0.2) {
+   fill("#FF0000")
+   stroke("#FF0000")
+   circle(rightWristX, rightWristY, 10);
+ }
  
    //funtion paddleInCanvas call 
    paddleInCanvas();
